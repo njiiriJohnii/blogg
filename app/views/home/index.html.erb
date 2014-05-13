@@ -3,5 +3,10 @@
  <%= link_to('users',users_path) %>
   <% end %>
 <%= link_to('log out',destroy_user_session_path , method: :delete) %>
+<%= form_for(current_user,html:{ multipart:true}) do |f| %>
+<%= f.file_field :profile_pic %>
+<%= f.submit %>
+<% end %>
+<%= image_tag current_user.profile_pic.url(:thumbnail) %>
 
 
